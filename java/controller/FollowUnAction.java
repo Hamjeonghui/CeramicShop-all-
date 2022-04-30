@@ -38,6 +38,9 @@ public class FollowUnAction implements Action {
 
 			User_vo uvo = new User_vo();
 			uvo.setUuid(follower);
+			// MakeSessionUtill클래스의 followSession메서드에
+			// 현재 로그인 상태인 ID를 uvo로 전달하여,
+			// 현 ID의 팔로우 목록을 session에 저장되도록 함
 			controller.MakeSessionUtill.followSession(uvo, req);
 		} else {
 			System.out.println("로그 : 언팔로우 실패");
