@@ -29,7 +29,7 @@ public class ProductInsertAction implements Action {
 		//경로지정
 		String realPath = req.getServletContext().getRealPath("/product_img");
 		String localPath  = realPath.substring(0, realPath.indexOf(".metadata"));
-		localPath = localPath + "ceramicShop\\src\\main\\webapp\\product_img";
+		localPath = localPath + "ceramicShop"+File.separator+"src"+File.separator+"main"+File.separator+"webapp"+File.separator+"product_img"; // 파일이 저장되어있는 경로
 		
 		//디렉토리
 		File dir_t = new File(realPath);
