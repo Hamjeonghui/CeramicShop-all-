@@ -37,6 +37,9 @@ public class ArtistAction implements Action {
 		ArrayList<Follow_vo> fdatas = new ArrayList<Follow_vo>();
 		udatas = udao.selectAll_user_seller(uvo);
 
+		// ✔︎ 팔로우 상태 확인
+		// View에서 넘어온 해당 작가페이지의 작가(UUID)가
+		// 현재 로그인중인 ID의 팔로우 목록에 존재한다면, result=true
 		fvo.setFollower(loginuser);
 		System.out.println(loginuser);
 		fdatas = fdao.selectAll_follow(fvo);
@@ -49,6 +52,9 @@ public class ArtistAction implements Action {
 			}
 		}
 
+		// VIEW에서 특정 작가의 페이지라고 지정해주지 않았다면(UUID에 값이 없다면),
+		// "전체작가보기"이기 때문에 pdatas를 전체 제품목록으로 넘겨주고,
+		// VIEW에서도 버튼 표시를 없앨 분기가 필요하므로 UUID를 null로 하여 다시 VIEW로 반환 한다.
 		System.out.println(result);
 		System.out.println(uuid);
 		if (uuid == null || uuid.equals("")) {
