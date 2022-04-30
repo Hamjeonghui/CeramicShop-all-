@@ -41,7 +41,10 @@ public class FollowAction implements Action {
 
 			User_vo uvo = new User_vo();
 			uvo.setUuid(follower);
-			controller.MakeSessionUtill.followSession(uvo, req);
+			// 팔로우 상태를 즉각적으로 모든 페이지에 반영할 목적으로
+			// MakeSessionUtill클래스의 followSwssion메서드를 활용하여,
+			// uvo를 통해 전달된 로그인 상태의 ID의 팔로우 목록을 session에 저장
+			controller.MakeSessionUtill.followSession(uvo, req); 
 		} else {
 			System.out.println("로그 : 팔로우 실패");
 
